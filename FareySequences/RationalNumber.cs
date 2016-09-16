@@ -10,9 +10,11 @@ namespace FareySequences
     {
         public RationalNumber(int numerator, int denominator)
         {
+            Numerator = numerator;
+            Denomerator = denominator;
         }
 
-        public override string ToString() => null;
+        public override string ToString() => $"{Numerator}/{Denomerator}";
         int Numerator { get; }
         int Denomerator { get; }
     }
