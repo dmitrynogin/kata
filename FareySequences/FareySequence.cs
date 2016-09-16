@@ -17,6 +17,9 @@ namespace FareySequences
                     Members.Add(new RationalNumber(n, d));
         }
 
+        public override string ToString() =>
+            "{" + string.Join(", ", this) +"}";
+
         public IEnumerator<RationalNumber> GetEnumerator() => Members.GetEnumerator();
         IEnumerator IEnumerable.GetEnumerator() => Members.GetEnumerator();
         SortedSet<RationalNumber> Members { get; }

@@ -31,7 +31,7 @@ namespace FareySequences.UnitTests
         public void Stringify_F4()
         {
             var f4 = new FareySequence(4);
-            Assert.AreEqual("{0/1, 1/4, 1/3, 1/2, 2/3, 3/4}", f4.ToString());
+            Assert.AreEqual("{0/1, 1/4, 1/3, 1/2, 2/3, 3/4, 1/1}", f4.ToString());
         }
     }
 }
