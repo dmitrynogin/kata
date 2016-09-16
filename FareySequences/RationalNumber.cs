@@ -10,6 +10,9 @@ namespace FareySequences
     { 
         public RationalNumber(int numerator, int denominator)
         {
+            if (denominator == 0)
+                throw new ArgumentException("Denominator can not be 0.", "denominator");
+
             Numerator = numerator;
             Denomerator = denominator;
         }
