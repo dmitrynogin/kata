@@ -44,5 +44,12 @@ namespace RomanNumerals.UnitTests
             var result = rn.ToString();
             Assert.AreEqual("MMXVI", result);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void Not_Be_Negative()
+        {
+            var rn = new RomanNumeral(-1);
+        }
     }
 }
