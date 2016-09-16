@@ -36,5 +36,13 @@ namespace RomanNumerals.UnitTests
         {
             var rn = new RomanNumeral("MMXVIzzz");
         }
+
+        [TestMethod]
+        public void Interpret_2016_As_MMXVI()
+        {
+            var rn = new RomanNumeral(2016);
+            var result = rn.ToString();
+            Assert.AreEqual("MMXVI", result);
+        }
     }
 }

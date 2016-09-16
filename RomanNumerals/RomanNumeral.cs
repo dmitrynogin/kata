@@ -19,6 +19,11 @@ namespace RomanNumerals
             Value = value;
         }
 
+        public RomanNumeral(int value)
+        {
+
+        }
+
         // http://www.rapidtables.com/convert/number/how-roman-numerals-to-number.htm
         public int ToInt32()
         {
