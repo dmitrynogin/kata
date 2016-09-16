@@ -31,5 +31,14 @@ namespace FareySequences.UnitTests
 
             Assert.AreEqual(0, left.CompareTo(right));
         }
+
+        [TestMethod]
+        public void Be_Equitable_In_All_Terms()
+        {
+            var left = new RationalNumber(1, 3);
+            var right = new RationalNumber(10, 30);
+
+            Assert.AreEqual(0, left.CompareTo(right));
+        }
     }
 }
