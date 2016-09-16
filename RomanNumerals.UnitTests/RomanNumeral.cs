@@ -29,5 +29,12 @@ namespace RomanNumerals.UnitTests
             var result = rn.ToInt32();
             Assert.AreEqual(2012, result);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void Validate_Constructor_Parameter()
+        {
+            var rn = new RomanNumeral("MMXVIzzz");
+        }
     }
 }
