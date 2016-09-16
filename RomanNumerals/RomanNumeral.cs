@@ -8,6 +8,24 @@ namespace RomanNumerals
 {
     public class RomanNumeral
     {
+        static IEnumerable<Tuple<string, int>> Table { get; } =
+            new []
+            {
+                Tuple.Create("I", 1),
+                Tuple.Create("IV", 4),
+                Tuple.Create("V", 5),
+                Tuple.Create("IX", 9),
+                Tuple.Create("X", 10),
+                Tuple.Create("XL", 40),
+                Tuple.Create("L", 50),
+                Tuple.Create("XC", 90),
+                Tuple.Create("C", 100),
+                Tuple.Create("CD", 400),
+                Tuple.Create("D", 500),
+                Tuple.Create("CM", 900),
+                Tuple.Create("M", 1000)
+            };
+
         public RomanNumeral(string value)
         {
             if (value == null)
@@ -19,6 +37,7 @@ namespace RomanNumerals
             Value = value;
         }
 
+        // http://www.rapidtables.com/convert/number/how-number-to-roman-numerals.htm
         public RomanNumeral(int value)
         {
 
@@ -27,37 +46,20 @@ namespace RomanNumerals
         // http://www.rapidtables.com/convert/number/how-roman-numerals-to-number.htm
         public int ToInt32()
         {
-            var table = new[]
-            {
-                new { Numeral="I", Value=1 },
-                new { Numeral="IV", Value=4 },
-                new { Numeral="V", Value=5 },
-                new { Numeral="IX", Value=9 },
-                new { Numeral="X", Value=10 },
-                new { Numeral="XL", Value=40 },
-                new { Numeral="L", Value=50 },
-                new { Numeral="XC", Value=90 },
-                new { Numeral="C", Value=100 },
-                new { Numeral="CD", Value=400 },
-                new { Numeral="D", Value=500 },
-                new { Numeral="CM", Value=900 },
-                new { Numeral="M", Value=1000 }
-            };
-
             var x = 0;
             var r = Value;
             while(r != string.Empty)
-                foreach (var n in table.Reverse())
-                    if(r.StartsWith(n.Numeral))
+                foreach (var n in Table.Reverse())
+                    if (r.StartsWith(n.Item1))
                     {
-                        x += n.Value;
-                        r = r.Substring(n.Numeral.Length);
+                        x += n.Item2;
+                        r = r.Substring(n.Item1.Length);
                         break;
                     }
 
             return x;
         }
 
-        string Value { get; }
+        string Value { get; }        
     }
 }
