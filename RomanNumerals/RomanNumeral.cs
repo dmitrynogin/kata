@@ -41,6 +41,9 @@ namespace RomanNumerals
         // http://www.rapidtables.com/convert/number/how-number-to-roman-numerals.htm
         public RomanNumeral(int value)
         {
+            if (value < 0)
+                throw new ArgumentOutOfRangeException("value");
+
             while (value > 0)
                 foreach (var n in Table)
                     if (value >= n.Item2)
