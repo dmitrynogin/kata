@@ -10,6 +10,12 @@ namespace RomanNumerals
     {
         public RomanNumeral(string value)
         {
+            if (value == null)
+                throw new ArgumentNullException("value");
+
+            if (value.Trim('I', 'V', 'X', 'L', 'C', 'D', 'M') != string.Empty)
+                throw new ArgumentException("Malformed value.", "value");
+
             Value = value;
         }
 
