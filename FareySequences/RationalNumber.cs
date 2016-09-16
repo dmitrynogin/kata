@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace FareySequences
 {
-    public class RationalNumber 
-    {
+    public class RationalNumber : IComparable<RationalNumber>
+    { 
         public RationalNumber(int numerator, int denominator)
         {
             Numerator = numerator;
@@ -15,6 +15,12 @@ namespace FareySequences
         }
 
         public override string ToString() => $"{Numerator}/{Denomerator}";
+
+        public int CompareTo(RationalNumber other)
+        {
+            throw new NotImplementedException();
+        }
+
         int Numerator { get; }
         int Denomerator { get; }
     }
