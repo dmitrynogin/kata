@@ -8,5 +8,11 @@ namespace RomanNumerals
 {
     public class RomanNumeral
     {
+        public RomanNumeral(string value)
+        {
+
+        }
+
+        public int ToInt32() => 0;
     }
 }
