@@ -11,17 +11,14 @@ namespace FareySequences
     {
         public FareySequence(int order)
         {
-
+            Members = new SortedSet<RationalNumber>();
+            for (int d = 1; d <= order; d++)
+                for (int n = 0; n <= d; n++)
+                    Members.Add(new RationalNumber(n, d));
         }
 
-        public IEnumerator<RationalNumber> GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
+        public IEnumerator<RationalNumber> GetEnumerator() => Members.GetEnumerator();
+        IEnumerator IEnumerable.GetEnumerator() => Members.GetEnumerator();
+        SortedSet<RationalNumber> Members { get; }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FareySequences
 {
-    public class RationalNumber : IComparable<RationalNumber>
+    public class RationalNumber : IComparable<RationalNumber>, IEquatable<RationalNumber>
     { 
         public RationalNumber(int numerator, int denominator)
         {
@@ -22,6 +22,16 @@ namespace FareySequences
         public int CompareTo(RationalNumber other) =>
             Math.Sign(Numerator*other.Denomerator - other.Numerator*Denomerator) * 
             Math.Sign(Denomerator*other.Denomerator);
+
+        public override int GetHashCode() =>
+            (Numerator / Denomerator).GetHashCode();
+
+        public override bool Equals(object obj) =>
+            Equals(obj as RationalNumber);
+
+        public bool Equals(RationalNumber other) =>
+            other != null &&
+            Numerator * other.Denomerator - other.Numerator * Denomerator == 0;
 
         int Numerator { get; }
         int Denomerator { get; }
