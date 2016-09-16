@@ -24,7 +24,8 @@ namespace RomanNumerals
                 Tuple.Create("D", 500),
                 Tuple.Create("CM", 900),
                 Tuple.Create("M", 1000)
-            };
+            }
+            .Reverse();
 
         public RomanNumeral(string value)
         {
@@ -40,7 +41,14 @@ namespace RomanNumerals
         // http://www.rapidtables.com/convert/number/how-number-to-roman-numerals.htm
         public RomanNumeral(int value)
         {
-
+            while (value > 0)
+                foreach (var n in Table)
+                    if (value >= n.Item2)
+                    {
+                        Value += n.Item1;
+                        value -= n.Item2;
+                        break;       
+                    }
         }
 
         // http://www.rapidtables.com/convert/number/how-roman-numerals-to-number.htm
@@ -49,7 +57,7 @@ namespace RomanNumerals
             var x = 0;
             var r = Value;
             while(r != string.Empty)
-                foreach (var n in Table.Reverse())
+                foreach (var n in Table)
                     if (r.StartsWith(n.Item1))
                     {
                         x += n.Item2;
@@ -60,6 +68,7 @@ namespace RomanNumerals
             return x;
         }
 
+        public override string ToString() => Value;
         string Value { get; }        
     }
 }
