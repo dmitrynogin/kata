@@ -16,10 +16,9 @@ namespace FareySequences
 
         public override string ToString() => $"{Numerator}/{Denomerator}";
 
-        public int CompareTo(RationalNumber other)
-        {
-            throw new NotImplementedException();
-        }
+        public int CompareTo(RationalNumber other) =>
+            Math.Sign(Numerator*other.Denomerator - other.Numerator*Denomerator) * 
+            Math.Sign(Denomerator*other.Denomerator);
 
         int Numerator { get; }
         int Denomerator { get; }
