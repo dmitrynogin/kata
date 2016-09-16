@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace WordWrapping
 {
+    // Real coding style example.
+    // Functional, scalable, reusable.
     public static class WordWrap
     {
         public static string Wrap(this string text, int lineLength)
