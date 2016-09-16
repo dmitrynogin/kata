@@ -8,5 +8,6 @@ namespace WordWrapping
 {
     public static class Wrapping
     {
+        public static string Wrap(this string text, int columns) => null;
     }
 }
