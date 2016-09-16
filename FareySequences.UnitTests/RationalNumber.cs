@@ -40,5 +40,12 @@ namespace FareySequences.UnitTests
 
             Assert.AreEqual(0, left.CompareTo(right));
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void Not_Allow_Zero_Denomerator()
+        {
+            var rn = new RationalNumber(1, 0);
+        }
     }
 }
